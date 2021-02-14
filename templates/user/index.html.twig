@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+
+  <h1>List of users</h1>
+<button type="button" class="btn btn-warning" id="blockSelectedUsers">Block</button>
+<button type="button" class="btn btn-primary" id="unblockSelectedUsers">Unblock</button>
+<button type="button" class="btn btn-danger" id="deleteSelectedUsers">Delete</button>
+
+<table class="table table-bordered text-center" id="usersTable">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col"><input type="checkbox" id="checkAllCheckboxes" name="selectAll"></th>
+    <th scope="col">ID</th>
+    <th scope="col">Username</th>
+    <th scope="col">Email</th>
+    <th scope="col">Status</th>
+    <th scope="col">Created at</th>
+    <th scope="col">Logined at</th>
+  </tr>
+  <tbody>
+    {% for user in users %}
+      <tr id="uid{{ user.id }}">
+        <th scope="row"><input class="singleCheckbox" name="checkboxes" value="{{ user.id }}" type="checkbox"></th>
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.status }}</td>
+        <td>{{ user.createdAt |date('d/m/Y, H:i') }}</td>
+        <td>{% if user.lastActivityAt%}
+              {{ user.lastActivityAt |date('d/m/Y, H:i') }}
+            {% else %}
+              never
+            {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+

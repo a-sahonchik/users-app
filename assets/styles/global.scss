@@ -1,0 +1,26 @@
+@import "~bootstrap/scss/bootstrap";
+
+#content {
+  margin-top: 5em;
+}
+.nav-link {
+  color: white;
+}
+.signed-user-info {
+  display: flex;
+  margin: auto;
+}
+.user-login {
+  margin: auto;
+  color:white;
+}
+.signed-user-info .logout-button {
+  margin-left: 1em;
+}
+.form-container {
+  width: 50%;
+  margin: auto;
+}
+table {
+  margin-top: 1em;
+}
